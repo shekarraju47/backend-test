@@ -17,6 +17,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {},
+  "devDependencies": {
+    "gh-pages": "^6.1.0"
+  },
   "description": ""
 }
