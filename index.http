@@ -1,0 +1,30 @@
+GET http://localhost:5000
+
+###
+
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+  "name":"praveen",
+  "age":31
+}
+
+
+###
+
+DELETE  http://localhost:5000/delete/653647e7e93d69ad87d59fd6
+
+###
+
+PUT http://localhost:5000/update/6541b73c441db101d80495c4
+Content-Type: application/json
+
+{
+  "name":"manoranjan",
+  "age":50
+}
+
+###
+
+GET http://localhost:5000/user/653660534856799098eedd96
