@@ -22,7 +22,7 @@ const user = mongoose.model("users", userScheema);
 
 // Now You Can do Oparations
 
-const DBaccesControll = ("Access-Control-Allow-Origin", "*");
+const DBaccesControll = ("Access-Control-Allow-Origin", "*")
 
 app.get("/", async (req, res) => {
   try {
@@ -35,8 +35,7 @@ app.get("/", async (req, res) => {
 });
 
 app.post("/signup", async (req, res) => {
-  const { name, age, username, password } = req.body;
-  console.log(username, password);
+  const { name, age } = req.body;
   try {
     const data = await user.find({ name: name });
 
@@ -107,5 +106,5 @@ app.get("/user/:id", async (req, res) => {
 });
 
 app.listen(5000, () => {
-  console.log("server started at http://localhost:5000");
+  console.log("server started at https://emerald-lamb-tux.cyclic.app/");
 });
