@@ -40,26 +40,38 @@ app.get("/", async (req, res) => {
 app.post("/signup", async (req, res) => {
   const { name, age, username, password, gender } = req.body;
   const hashpassword = await bcrypt.hash(password, 10);
-  try {
-    const data = await user.findOne({ username: username });
 
-    if (data.length < 1) {
-      const createUser = new user({
-        name: name,
-        age: age,
-        username: username,
-        password: hashpassword,
-        gender: gender,
-      });
-      const result = await createUser.save();
-      res.status(200);
-      res.send(result);
-    } else {
-      res.status(400);
-      res.send({ type: "User Already Exist" });
+  if (
+    name.length > 0 &&
+    toString(age).length > 0 &&
+    username.length > 0 &&
+    password.length > 0 &&
+    gender.length > 0
+  ) {
+    try {
+      const data = await user.find({ username: username });
+
+      if (data.length < 1) {
+        const createUser = new user({
+          name: name,
+          age: age,
+          username: username,
+          password: hashpassword,
+          gender: gender,
+        });
+        const result = await createUser.save();
+        res.status(200);
+        res.send(result);
+      } else {
+        res.status(201);
+        res.send({ type: "User Already Exist" });
+      }
+    } catch (e) {
+      res.send(e);
     }
-  } catch (e) {
-    res.send(e);
+  } else {
+    res.status(400);
+    res.send({ type: "Enter Valid Inputs" });
   }
 });
 
