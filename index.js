@@ -1,4 +1,5 @@
 const express = require("express");
+const bcrypt = require("bcrypt");
 require("dotenv").config();
 const mongoose = require("mongoose");
 
@@ -15,6 +16,9 @@ mongoose
 const userScheema = new mongoose.Schema({
   name: String,
   age: Number,
+  username: String,
+  password: String,
+  gender: String,
 });
 
 // Now You can pass the table first and value schema
@@ -22,7 +26,7 @@ const user = mongoose.model("users", userScheema);
 
 // Now You Can do Oparations
 
-const DBaccesControll = ("Access-Control-Allow-Origin", "*")
+const DBaccesControll = ("Access-Control-Allow-Origin", "*");
 
 app.get("/", async (req, res) => {
   try {
@@ -35,14 +39,18 @@ app.get("/", async (req, res) => {
 });
 
 app.post("/signup", async (req, res) => {
-  const { name, age } = req.body;
+  const { name, age, username, password, gender } = req.body;
+  const hashpassword = await bcrypt.hash(password, 10);
   try {
-    const data = await user.find({ name: name });
+    const data = await user.findOne({ username: username });
 
     if (data.length < 1) {
       const createUser = new user({
         name: name,
         age: age,
+        username: username,
+        password: hashpassword,
+        gender: gender,
       });
       const result = await createUser.save();
       res.status(200);
