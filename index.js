@@ -1,10 +1,12 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
+const cors = require("cors");
 require("dotenv").config();
 const mongoose = require("mongoose");
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 // Connet To DataBase And Like Tabel/Collection
 mongoose
@@ -26,7 +28,7 @@ const user = mongoose.model("users", userScheema);
 
 // Now You Can do Oparations
 
-const DBaccesControll = ("Access-Control-Allow-Origin", "*");
+const DBaccesControll = ("Access-Control-Allow-Origin", "no-cors");
 
 app.get("/", async (req, res) => {
   try {
