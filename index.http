@@ -6,10 +6,10 @@ POST http://localhost:5000/signup
 Content-Type: application/json
 
 {
-  "name":"praveen",
-  "age":31,
-  "username":"praveen@gmail.com",
-  "password":"Praveen123",
+  "name":"",
+  "age":29,
+  "username":"shekarraju8@gmail.com",
+  "password":"shekar@3111",
   "gender":"male"
 }
 
@@ -24,8 +24,7 @@ PUT http://localhost:5000/update/6541b73c441db101d80495c4
 Content-Type: application/json
 
 {
-  "name":"manoranjan",
-  "age":50
+  "name":"shekar"
 }
 
 ###
