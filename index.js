@@ -31,7 +31,7 @@ app.get("/", async (req, res) => {
   }
 });
 
-app.post("/login", async (req, res) => {
+app.post("/signup", async (req, res) => {
   const { name, age } = req.body;
   try {
     const data = await user.find({ name: name });
