@@ -5,7 +5,7 @@ app.use(express.json());
 
 // Connet To DataBase And Like Tabel/Collection
 mongoose
-  .connect("mongodb://127.0.0.1:27017/userDb")
+  .connect("mongodb+srv://shekarraju8:Shekar@cluster0.qkbxoh7.mongodb.net/users?retryWrites=true&w=majority")
   .then(() => console.log("Connect SuccessFull"))
   .catch((e) => console.error("error"));
 
