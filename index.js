@@ -25,6 +25,7 @@ const user = mongoose.model("users", userScheema);
 app.get("/", async (req, res) => {
   try {
     const data = await user.find();
+    res.set("Access-Control-Allow-Origin", "http://localhost:5000");
     res.send(data);
   } catch (e) {
     console.error(e.massage);
