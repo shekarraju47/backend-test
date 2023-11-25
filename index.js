@@ -42,6 +42,7 @@ app.post("/signup", async (req, res) => {
         age: age,
       });
       const result = await createUser.save();
+      res.status(200);
       res.send(result);
     } else {
       res.status(400);
