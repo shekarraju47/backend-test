@@ -102,6 +102,6 @@ app.get("/user/:id", async (req, res) => {
   }
 });
 
-app.listen("https://emerald-lamb-tux.cyclic.app/", () => {
+app.listen("https://emerald-lamb-tux.cyclic.app", () => {
   console.log("server started at https://emerald-lamb-tux.cyclic.app/");
 });
