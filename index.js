@@ -1,11 +1,13 @@
 const express = require("express");
+require("dotenv").config();
 const mongoose = require("mongoose");
+
 const app = express();
 app.use(express.json());
 
 // Connet To DataBase And Like Tabel/Collection
 mongoose
-  .connect("mongodb+srv://shekarraju8:Shekar@cluster0.qkbxoh7.mongodb.net/users?retryWrites=true&w=majority")
+  .connect(process.env.MONGO_URL)
   .then(() => console.log("Connect SuccessFull"))
   .catch((e) => console.error("error"));
 
