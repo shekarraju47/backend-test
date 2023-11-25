@@ -60,8 +60,11 @@ app.post("/signup", async (req, res) => {
           gender: gender,
         });
         const result = await createUser.save();
+        const { password: pass, ...rest } = result._doc;
+
         res.status(200);
-        res.send(result);
+        res.send(rest);
+        console.log(rest);
       } else {
         res.status(400);
         res.send({ type: "User Already Exist" });

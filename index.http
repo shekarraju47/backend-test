@@ -6,10 +6,10 @@ POST http://localhost:5000/signup
 Content-Type: application/json
 
 {
-  "name":"shekar",
+  "name":"ema",
   "age":29,
-  "username":"shekarraju8@gmail.com",
-  "password":"shekar@3111",
+  "username":"ema@gmail.com",
+  "password":"ema@3111",
   "gender":"male"
 }
 
