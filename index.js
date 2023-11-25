@@ -102,6 +102,6 @@ app.get("/user/:id", async (req, res) => {
   }
 });
 
-app.listen(5000, () => {
+app.listen("https://emerald-lamb-tux.cyclic.app/", () => {
   console.log("server started at http://localhost:5000/");
 });
