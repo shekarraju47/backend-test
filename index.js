@@ -28,12 +28,9 @@ const user = mongoose.model("users", userScheema);
 
 // Now You Can do Oparations
 
-const DBaccesControll = ("Access-Control-Allow-Origin", "no-cors");
-
 app.get("/", async (req, res) => {
   try {
     const data = await user.find();
-    res.set(DBaccesControll);
     res.send(data);
   } catch (e) {
     console.error(e.massage);
