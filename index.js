@@ -15,6 +15,8 @@ mongoose
 const userScheema = new mongoose.Schema({
   name: String,
   age: Number,
+  username: String,
+  password: String,
 });
 
 // Now You can pass the table first and value schema
