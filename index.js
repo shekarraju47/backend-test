@@ -15,8 +15,6 @@ mongoose
 const userScheema = new mongoose.Schema({
   name: String,
   age: Number,
-  username: String,
-  password: String,
 });
 
 // Now You can pass the table first and value schema
@@ -24,10 +22,12 @@ const user = mongoose.model("users", userScheema);
 
 // Now You Can do Oparations
 
+const DBaccesControll = ("Access-Control-Allow-Origin", "*");
+
 app.get("/", async (req, res) => {
   try {
     const data = await user.find();
-    res.set("Access-Control-Allow-Origin", "*");
+    res.set(DBaccesControll);
     res.send(data);
   } catch (e) {
     console.error(e.massage);
@@ -107,5 +107,5 @@ app.get("/user/:id", async (req, res) => {
 });
 
 app.listen(5000, () => {
-  console.log("server started at https://emerald-lamb-tux.cyclic.app/");
+  console.log("server started at http://localhost:5000");
 });
