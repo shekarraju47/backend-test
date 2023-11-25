@@ -63,7 +63,7 @@ app.post("/signup", async (req, res) => {
         res.status(200);
         res.send(result);
       } else {
-        res.status(201);
+        res.status(400);
         res.send({ type: "User Already Exist" });
       }
     } catch (e) {
