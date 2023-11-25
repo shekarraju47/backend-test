@@ -33,7 +33,8 @@ app.get("/", async (req, res) => {
 });
 
 app.post("/signup", async (req, res) => {
-  const { name, age } = req.body;
+  const { name, age, username, password } = req.body;
+  console.log(username, password);
   try {
     const data = await user.find({ name: name });
 

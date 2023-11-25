@@ -2,12 +2,14 @@ GET http://localhost:5000
 
 ###
 
-POST http://localhost:5000/signup
+POST https://emerald-lamb-tux.cyclic.app/signup
 Content-Type: application/json
 
 {
   "name":"praveen",
-  "age":31
+  "age":31,
+  "username":"praveen@gmail.com",
+  "password":"Praveen123"
 }
 
 
